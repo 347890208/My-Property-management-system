@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainy.property.mapper.NoticeMapper">
+  <resultMap id="BaseResultMap" type="com.rainy.property.domain.Notice">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    <!--@Table notice-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="ndate" jdbcType="DATE" property="ndate" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="uper" jdbcType="VARCHAR" property="uper" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    id, content, ndate, title, uper
+  </sql>
+</mapper>

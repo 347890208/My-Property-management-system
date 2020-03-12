@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainy.property.mapper.InspectionMapper">
+  <resultMap id="BaseResultMap" type="com.rainy.property.domain.Inspection">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    <!--@Table inspection-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="person" jdbcType="VARCHAR" property="person" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="itime" jdbcType="DATE" property="itime" />
+    <result column="conductor" jdbcType="VARCHAR" property="conductor" />
+    <result column="party" jdbcType="VARCHAR" property="party" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    id, person, `type`, itime, conductor, party, `result`, memo
+  </sql>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainy.property.mapper.MaintainMapper">
+  <resultMap id="BaseResultMap" type="com.rainy.property.domain.Maintain">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    <!--@Table maintain-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="thing" jdbcType="VARCHAR" property="thing" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="homesnumber" jdbcType="VARCHAR" property="homesnumber" />
+    <result column="sdate" jdbcType="DATE" property="sdate" />
+    <result column="rdate" jdbcType="DATE" property="rdate" />
+    <result column="tcost" jdbcType="INTEGER" property="tcost" />
+    <result column="scost" jdbcType="INTEGER" property="scost" />
+    <result column="maintainer" jdbcType="VARCHAR" property="maintainer" />
+    <result column="smemo" jdbcType="VARCHAR" property="smemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    id, thing, `status`, homesnumber, sdate, rdate, tcost, scost, maintainer, smemo
+  </sql>
+</mapper>

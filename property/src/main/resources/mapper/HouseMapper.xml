@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainy.property.mapper.HouseMapper">
+  <resultMap id="BaseResultMap" type="com.rainy.property.domain.House">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    <!--@Table house-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="num" jdbcType="VARCHAR" property="num" />
+    <result column="dep" jdbcType="VARCHAR" property="dep" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="sell" jdbcType="VARCHAR" property="sell" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="floor" jdbcType="VARCHAR" property="floor" />
+    <result column="direction" jdbcType="VARCHAR" property="direction" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="ownerid" jdbcType="VARCHAR" property="ownerid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
+    id, num, dep, `type`, area, sell, unit, `floor`, direction, memo, ownerid
+  </sql>
+</mapper>
