@@ -1,4 +1,4 @@
-package com.rainy.property.service.impl;
+package com.rainy.property.service;
 
     /**
   *

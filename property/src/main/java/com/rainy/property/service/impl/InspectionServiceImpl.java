@@ -1,9 +1,10 @@
-package com.rainy.property.service;
+package com.rainy.property.service.impl;
 
+import com.rainy.property.service.InspectionService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.rainy.property.mapper.InspectionMapper;
-import com.rainy.property.service.impl.InspectionService;
+
 /**
   *
   * @ProjectName: My-Property-management-system
@@ -15,7 +16,7 @@ import com.rainy.property.service.impl.InspectionService;
   *
   */
 @Service
-public class InspectionServiceImpl implements InspectionService{
+public class InspectionServiceImpl implements InspectionService {
 
     @Resource
     private InspectionMapper inspectionMapper;

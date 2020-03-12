@@ -1,13 +1,14 @@
-package com.rainy.property.service;
+package com.rainy.property.service.impl;
 
+import com.rainy.property.service.NoticeService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import com.rainy.property.mapper.HouseMapper;
-import com.rainy.property.service.impl.HouseService;
+import com.rainy.property.mapper.NoticeMapper;
+
 /**
   *
   * @ProjectName: My-Property-management-system
-  * @ClassName: HouseServiceImpl
+  * @ClassName: NoticeServiceImpl
   * @Description: TODO(一句话描述该类的功能)
   * @Author: 34789
   * @Date: 2020/3/12 17:06
@@ -15,9 +16,9 @@ import com.rainy.property.service.impl.HouseService;
   *
   */
 @Service
-public class HouseServiceImpl implements HouseService{
+public class NoticeServiceImpl implements NoticeService {
 
     @Resource
-    private HouseMapper houseMapper;
+    private NoticeMapper noticeMapper;
 
 }
