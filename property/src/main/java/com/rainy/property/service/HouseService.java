@@ -1,6 +1,8 @@
 package com.rainy.property.service;
 
-    /**
+import com.rainy.property.domain.House;
+
+/**
   *
   * @ProjectName: My-Property-management-system
   * @ClassName: HouseService
@@ -11,6 +13,12 @@ package com.rainy.property.service;
   *
   */
 public interface HouseService{
+    /**
+     * 通过id查找一个House
+     * @param id
+     * @return
+     */
+    House selectHouseById(String id);
 
 
 }
