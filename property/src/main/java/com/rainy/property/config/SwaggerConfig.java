@@ -33,7 +33,7 @@ public class SwaggerConfig {
                 //enable  true可以网页进入Swagger,false相反
                 .enable(true)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.rainy.property"))
+                .apis(RequestHandlerSelectors.basePackage("com.rainy.property.controller"))
                 .build();
 
     }

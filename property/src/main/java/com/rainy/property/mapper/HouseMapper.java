@@ -2,6 +2,9 @@ package com.rainy.property.mapper;
 
 import com.rainy.property.domain.House;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
   *
@@ -15,4 +18,15 @@ import org.apache.ibatis.annotations.Mapper;
   */
 @Mapper
 public interface HouseMapper extends tk.mybatis.mapper.common.Mapper<House> {
+
+
+    /**
+     * 分页查询
+     * @param pageSize
+     * @param pageIndex
+     * @return
+     */
+    @Select("select * from house order by id desc limit #{pageSize} offset #{pageIndex}")
+    List<House> selectAllLimit(int pageSize,int pageIndex);
+
 }

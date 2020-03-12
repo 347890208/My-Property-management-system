@@ -2,11 +2,10 @@ package com.rainy.property.controller;
 
 import com.rainy.property.domain.House;
 import com.rainy.property.service.HouseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @version v1.0
@@ -17,12 +16,13 @@ import javax.annotation.Resource;
  * @Date: 2020/3/12 17:46
  */
 @RestController
+@RequestMapping("/house")
 public class HouseController {
 
     @Resource
     HouseService houseService;
 
-    @GetMapping("/house/{id}")
+    @GetMapping("/one/{id}")
     public House selectOneHouseById(@PathVariable String id){
 
 
@@ -30,4 +30,14 @@ public class HouseController {
 
     }
 
+    @GetMapping("/list/")
+    public List<House> selectAllByPage(@PathVariable int pageSize,@PathVariable int pageIndex){
+        return houseService.selectAll(pageSize,pageIndex);
+    }
+
+    @PostMapping("/")
+    public boolean insertOne (House house){
+        houseService.insertOneHouse(house);
+        return true;
+    }
 }

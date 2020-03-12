@@ -22,15 +22,15 @@ import lombok.Data;
 public class House implements Serializable {
     @Id
     @Column(name = "id")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="house的id 主键")
     private String id;
 
     @Column(name = "num")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="门牌号")
     private String num;
 
     @Column(name = "dep")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="楼层数")
     private String dep;
 
     @Column(name = "`type`")
