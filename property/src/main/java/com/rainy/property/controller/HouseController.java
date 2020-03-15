@@ -23,7 +23,7 @@ public class HouseController {
     @Resource
     HouseService houseService;
 
-    @GetMapping("/one/")
+    @GetMapping("/one/{id}")
     public House selectOneHouseById(@PathVariable String id){
 
 
@@ -61,5 +61,13 @@ public class HouseController {
         return true;
     }
 
+    @DeleteMapping("/delete/{id}")
+    public boolean deleteById (@PathVariable String id){
+        House house = new House();
+        house.setId(id);
+
+        return houseService.deleteByHouse(house);
+
+    }
 
 }

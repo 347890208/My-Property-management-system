@@ -133,7 +133,18 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public boolean deleteByHouse(House house) {
-        return false;
+        String rediskey = "House:id:"+house.getId();
+        if (houseMapper.existsWithPrimaryKey(house)){
+            int i = houseMapper.deleteByPrimaryKey(house);
+            System.out.printf("成功删除%d%n", i);
+            if (redisTemplate.hasKey(rediskey)) {
+                redisTemplate.delete(rediskey);
+            }
+            return true;
+        }else {
+            System.out.println("没有这号人啊");
+            return false;
+        }
     }
 
 
