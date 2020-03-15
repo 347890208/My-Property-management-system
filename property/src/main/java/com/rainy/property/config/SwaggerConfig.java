@@ -43,10 +43,10 @@ public class SwaggerConfig {
 
         Contact contact = new Contact("Rainy", "https://github.com/347890208", "347890208@qq.com");
         return new ApiInfo(
+                "property_bishe",
                 "Api Documentation",
-                "Api Documentation",
-                "1.0",
-                "urn:tos",
+                "1",
+                "就我自己还想要terms?",
                 contact,
                 "Apache 2.0",
                 "http://www.apache.org/licenses/LICENSE-2.0",

@@ -5,6 +5,7 @@ import com.rainy.property.service.HouseService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class HouseController {
     @Resource
     HouseService houseService;
 
-    @GetMapping("/one/{id}")
+    @GetMapping("/one/")
     public House selectOneHouseById(@PathVariable String id){
 
 
@@ -31,13 +32,34 @@ public class HouseController {
     }
 
     @GetMapping("/list/")
-    public List<House> selectAllByPage(@PathVariable int pageSize,@PathVariable int pageIndex){
-        return houseService.selectAll(pageSize,pageIndex);
+    public List<House> selectAllByPage(@RequestParam(defaultValue = "id") String orderBy,
+                                       @RequestParam(defaultValue = "3") int pageSize,
+                                       @RequestParam(defaultValue = "1") int pageIndex){
+        return houseService.selectAll(orderBy,pageSize,pageIndex);
     }
 
     @PostMapping("/")
-    public boolean insertOne (House house){
+    public boolean insertOne (@NotNull House house){
+
+        try {
+            if ("".equals(house.getId())){return false;}
+            if ("".equals(house.getArea())){return false;}
+            if ("".equals(house.getDep())){return false;}
+            if ("".equals(house.getDirection())){return false;}
+            if ("".equals(house.getFloor())){return false;}
+            if ("".equals(house.getMemo())){return false;}
+            if ("".equals(house.getNum())){return false;}
+            if ("".equals(house.getOwnerid())){return false;}
+            if ("".equals(house.getSell())){return false;}
+            if ("".equals(house.getType())){return false;}
+            if ("".equals(house.getUnit())){return false;}
+
+        } catch (Exception e){
+            System.out.println("异常了");
+        }
         houseService.insertOneHouse(house);
         return true;
     }
+
+
 }

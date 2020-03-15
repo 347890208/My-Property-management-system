@@ -22,11 +22,14 @@ public interface HouseMapper extends tk.mybatis.mapper.common.Mapper<House> {
 
     /**
      * 分页查询
+     * @param orderBy
      * @param pageSize
      * @param pageIndex
      * @return
      */
-    @Select("select * from house order by id desc limit #{pageSize} offset #{pageIndex}")
-    List<House> selectAllLimit(int pageSize,int pageIndex);
+    @Select("select * from house order by #{orderBy} desc limit #{pageSize} offset #{pageIndex}")
+    List<House> selectAllLimit(String orderBy,int pageSize,int pageIndex);
+
+
 
 }
