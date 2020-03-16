@@ -3,6 +3,7 @@ package com.rainy.property.controller;
 import com.rainy.property.domain.House;
 import com.rainy.property.service.HouseService;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.spring.web.json.Json;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
@@ -23,7 +24,7 @@ public class HouseController {
     @Resource
     HouseService houseService;
 
-    @GetMapping("/one/{id}")
+    @GetMapping("/resource/{id}")
     public House selectOneHouseById(@PathVariable String id){
 
 
@@ -31,7 +32,7 @@ public class HouseController {
 
     }
 
-    @GetMapping("/list/")
+    @GetMapping("/")
     public List<House> selectAllByPage(@RequestParam(defaultValue = "id") String orderBy,
                                        @RequestParam(defaultValue = "3") int pageSize,
                                        @RequestParam(defaultValue = "1") int pageIndex){
@@ -39,26 +40,26 @@ public class HouseController {
     }
 
     @PostMapping("/")
-    public boolean insertOne (@NotNull House house){
+    public House insertOne (@NotNull House house){
 
         try {
-            if ("".equals(house.getId())){return false;}
-            if ("".equals(house.getArea())){return false;}
-            if ("".equals(house.getDep())){return false;}
-            if ("".equals(house.getDirection())){return false;}
-            if ("".equals(house.getFloor())){return false;}
-            if ("".equals(house.getMemo())){return false;}
-            if ("".equals(house.getNum())){return false;}
-            if ("".equals(house.getOwnerid())){return false;}
-            if ("".equals(house.getSell())){return false;}
-            if ("".equals(house.getType())){return false;}
-            if ("".equals(house.getUnit())){return false;}
+            if ("".equals(house.getId())){return null;}
+            if ("".equals(house.getArea())){return null;}
+            if ("".equals(house.getDep())){return null;}
+            if ("".equals(house.getDirection())){return null;}
+            if ("".equals(house.getFloor())){return null;}
+            if ("".equals(house.getMemo())){return null;}
+            if ("".equals(house.getNum())){return null;}
+            if ("".equals(house.getOwnerid())){return null;}
+            if ("".equals(house.getSell())){return null;}
+            if ("".equals(house.getType())){return null;}
+            if ("".equals(house.getUnit())){return null;}
 
         } catch (Exception e){
             System.out.println("异常了");
         }
         houseService.insertOneHouse(house);
-        return true;
+        return house;
     }
 
     @DeleteMapping("/delete/{id}")
