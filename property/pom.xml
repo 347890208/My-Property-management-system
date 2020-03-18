@@ -131,7 +131,17 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
         </dependency>
-<!--         https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--         https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter-->
 <!--        <dependency>-->
 <!--            <groupId>org.redisson</groupId>-->
 <!--            <artifactId>redisson-spring-boot-starter</artifactId>-->

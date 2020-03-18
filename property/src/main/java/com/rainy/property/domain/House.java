@@ -34,27 +34,27 @@ public class House implements Serializable {
     private String dep;
 
     @Column(name = "`type`")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="户型")
     private String type;
 
     @Column(name = "area")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="区域")
     private String area;
 
     @Column(name = "sell")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="是否已售")
     private String sell;
 
     @Column(name = "unit")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="单元")
     private String unit;
 
     @Column(name = "`floor`")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="楼层数")
     private String floor;
 
     @Column(name = "direction")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="面向")
     private String direction;
 
     @Column(name = "memo")
@@ -62,7 +62,7 @@ public class House implements Serializable {
     private String memo;
 
     @Column(name = "ownerid")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="户主ID")
     private String ownerid;
 
     private static final long serialVersionUID = 1L;

@@ -23,23 +23,23 @@ import lombok.Data;
 public class Notice implements Serializable {
     @Id
     @Column(name = "id")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="公告ID")
     private String id;
 
     @Column(name = "content")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="公告内容")
     private String content;
 
     @Column(name = "ndate")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="公告日期")
     private Date ndate;
 
     @Column(name = "title")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="公告标题")
     private String title;
 
     @Column(name = "uper")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="上传者")
     private String uper;
 
     private static final long serialVersionUID = 1L;

@@ -3,6 +3,8 @@ package com.rainy.property.mapper;
 import com.rainy.property.domain.Notice;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Map;
+
 /**
   *
   * @ProjectName: My-Property-management-system
@@ -15,4 +17,7 @@ import org.apache.ibatis.annotations.Mapper;
   */
 @Mapper
 public interface NoticeMapper extends tk.mybatis.mapper.common.Mapper<Notice> {
+    Map<String,Object> findAllById();
+
+
 }

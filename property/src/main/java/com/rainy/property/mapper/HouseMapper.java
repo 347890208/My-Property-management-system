@@ -2,34 +2,32 @@ package com.rainy.property.mapper;
 
 import com.rainy.property.domain.House;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 /**
-  *
-  * @ProjectName: My-Property-management-system
-  * @ClassName: HouseMapper
-  * @Description: TODO(一句话描述该类的功能)
-  * @Author: 34789
-  * @Date: 2020/3/12 17:06
-  * @version v1.0
-  *
-  */
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: HouseMapper
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/12 17:06
+ */
 @Mapper
 public interface HouseMapper extends tk.mybatis.mapper.common.Mapper<House> {
 
 
     /**
      * 分页查询
+     *
      * @param orderBy
      * @param pageSize
      * @param pageIndex
      * @return
      */
-    @Select("select * from house order by #{orderBy} desc limit #{pageSize} offset #{pageIndex}")
-    List<House> selectAllLimit(String orderBy,int pageSize,int pageIndex);
-
+    List<House> selectAllLimit(@Param("orderBy") String orderBy, @Param("pageSize") int pageSize, @Param("pageIndex") int pageIndex);
 
 
 }

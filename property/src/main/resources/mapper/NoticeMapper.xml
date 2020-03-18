@@ -14,4 +14,5 @@
     <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
     id, content, ndate, title, uper
   </sql>
+  <select id="findAllById" resultType="java.util.Map"></select>
 </mapper>

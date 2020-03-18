@@ -20,4 +20,7 @@
     <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
     id, num, dep, `type`, area, sell, unit, `floor`, direction, memo, ownerid
   </sql>
+    <select id="selectAllLimit" resultMap="BaseResultMap">
+      select * from house order by #{orderBy} desc limit #{pageSize} offset #{pageIndex}
+    </select>
 </mapper>
