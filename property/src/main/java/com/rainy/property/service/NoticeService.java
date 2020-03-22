@@ -1,6 +1,8 @@
 package com.rainy.property.service;
 
-    /**
+import com.rainy.property.domain.Notice;
+
+/**
   *
   * @ProjectName: My-Property-management-system
   * @ClassName: NoticeService
@@ -12,5 +14,5 @@ package com.rainy.property.service;
   */
 public interface NoticeService{
 
-
+        Notice selectOne(Notice notice);
 }

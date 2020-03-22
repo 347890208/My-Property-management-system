@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainy.login.mapper.UserAccountMapper">
+  <resultMap id="BaseResultMap" type="com.rainy.login.domain.UserAccount">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    <!--@Table user_account-->
+    <id column="UUID" jdbcType="INTEGER" property="uuid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="enable" jdbcType="VARCHAR" property="enable" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    UUID, username, `password`, `enable`, `role`
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    update user_account
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`enable` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.enable,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`role` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.role,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where UUID in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.uuid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    update user_account
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.username != null">
+            when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.password != null">
+            when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`enable` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.enable != null">
+            when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.enable,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`role` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.role != null">
+            when UUID = #{item.uuid,jdbcType=INTEGER} then #{item.role,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where UUID in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.uuid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    insert into user_account
+    (UUID, username, `password`, `enable`, `role`)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.uuid,jdbcType=INTEGER}, #{item.username,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, 
+        #{item.enable,jdbcType=VARCHAR}, #{item.role,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.rainy.login.domain.UserAccount">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    insert into user_account
+    (UUID, username, `password`, `enable`, `role`)
+    values
+    (#{uuid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{enable,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR})
+    on duplicate key update 
+    UUID = #{uuid,jdbcType=INTEGER}, 
+    username = #{username,jdbcType=VARCHAR}, 
+    `password` = #{password,jdbcType=VARCHAR}, 
+    `enable` = #{enable,jdbcType=VARCHAR}, 
+    `role` = #{role,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.rainy.login.domain.UserAccount">
+    <!--@mbg.generated generated on Sun Mar 22 21:27:10 CST 2020.-->
+    insert into user_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="enable != null">
+        `enable`,
+      </if>
+      <if test="role != null">
+        `role`,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="uuid != null">
+        UUID = #{uuid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        `enable` = #{enable,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        `role` = #{role,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

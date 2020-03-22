@@ -11,6 +11,7 @@ import springfox.documentation.spring.web.json.Json;
 
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 class PropertyApplicationTests {
@@ -25,6 +26,19 @@ class PropertyApplicationTests {
 //        redisTemplate.opsForHash().putAll("jila", (Map<?, ?>) houseListIterator);
 
 
+    }
+
+    @Test
+    void testhashmap(){
+
+        House house = new House();
+        house.setId("121");
+        House house1 = houseMapper.selectOne(house);
+        redisTemplate.opsForHash().put("honleins","osdfinoef",house1);
+//        redisTemplate.opsForHash().delete("honleins","osdfinoef");
+        redisTemplate.expire("honleins",1, TimeUnit.HOURS);
+        House o = (House) redisTemplate.opsForHash().get("honleins", "osdfinoef");
+        System.out.println(o);
     }
 
 }
