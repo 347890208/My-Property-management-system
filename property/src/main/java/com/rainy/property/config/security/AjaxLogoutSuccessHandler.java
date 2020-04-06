@@ -11,6 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: AjaxLogoutSuccessHandler
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/18 11:42
+ */
 @Component
 public class AjaxLogoutSuccessHandler implements LogoutSuccessHandler {
 

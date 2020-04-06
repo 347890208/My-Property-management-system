@@ -11,6 +11,14 @@ import org.springframework.stereotype.Component;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: SelfUserDetailsService
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/16 10:16
+ */
 @Component
 public class SelfUserDetailsService implements UserDetailsService {
     @Override

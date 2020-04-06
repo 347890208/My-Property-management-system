@@ -9,6 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: RbacAuthorityService
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/18 15:46
+ */
 @Component("rbacauthorityservice")
 public class RbacAuthorityService {
     public boolean hasPermission(HttpServletRequest request, Authentication authentication) {

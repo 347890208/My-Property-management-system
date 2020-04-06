@@ -9,6 +9,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: SpringSecurityConf
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/16 9:36
+ */
 @Configuration
 public class SpringSecurityConf extends WebSecurityConfigurerAdapter {
 
@@ -62,6 +70,7 @@ public class SpringSecurityConf extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
 
+                .antMatchers("/house/**").permitAll()
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest()
                 .access("@rbacauthorityservice.hasPermission(request,authentication)") // RBAC 动态 url 认证

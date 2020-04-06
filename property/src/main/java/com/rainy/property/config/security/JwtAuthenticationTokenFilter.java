@@ -16,6 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
+/**
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: JwtAuthenticationTokenFilter
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/18 17:26
+ */
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
