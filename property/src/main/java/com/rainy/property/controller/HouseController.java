@@ -2,8 +2,8 @@ package com.rainy.property.controller;
 
 import com.rainy.property.domain.House;
 import com.rainy.property.service.HouseService;
+import com.rainy.property.util.UrlUtil;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
@@ -33,11 +33,18 @@ public class HouseController {
 
     }
 
-    @GetMapping("/")
+    @GetMapping("/list/")
     public List<House> selectAllByPage(@RequestParam(defaultValue = "id") String orderBy,
-                                       @RequestParam(defaultValue = "3") int pageSize,
-                                       @RequestParam(defaultValue = "1") int pageIndex){
-        return houseService.selectAll(orderBy,pageSize,pageIndex);
+                                       @RequestParam(defaultValue = "1") int pageIndex,
+                                       @RequestParam(defaultValue = "3") int pageSize){
+        return houseService.selectAll(orderBy,pageIndex,pageSize);
+    }
+
+    @GetMapping("/")
+    public UrlUtil selectAll(){
+        List<House> houses = houseService.selectListAll();
+        UrlUtil urlUtil = new UrlUtil(20000, houses);
+        return urlUtil;
     }
 
     @PostMapping("/")
@@ -55,7 +62,7 @@ public class HouseController {
             if ("".equals(house.getSell())){return null;}
             if ("".equals(house.getType())){return null;}
             if ("".equals(house.getUnit())){return null;}
-
+            if ("".equals(house.getStatus())){return null;}
         } catch (Exception e){
             System.out.println("异常了");
         }

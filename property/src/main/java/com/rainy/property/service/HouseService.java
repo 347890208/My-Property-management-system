@@ -48,4 +48,6 @@ public interface HouseService {
     boolean updateHouse(House house);
 
     boolean deleteByHouse(House house);
+
+    List<House> selectListAll();
 }

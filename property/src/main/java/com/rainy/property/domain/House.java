@@ -65,5 +65,9 @@ public class House implements Serializable {
     @ApiModelProperty(value="户主ID")
     private String ownerid;
 
+    @Column(name = "`status`")
+    @ApiModelProperty(value="状态")
+    private String status;
+
     private static final long serialVersionUID = 1L;
 }

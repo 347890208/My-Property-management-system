@@ -3,6 +3,7 @@ package com.rainy.property.service.impl;
 import com.alibaba.druid.pool.vendor.NullExceptionSorter;
 import com.rainy.property.domain.House;
 import com.rainy.property.service.HouseService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -63,7 +64,7 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public List<House> selectAll(String orderBy,int pageSize,int pageIndex) {
+    public List<House> selectAll(String orderBy,int pageIndex,int pageSize) {
 //        String key = "HouseAll:"+orderBy+":"+String.valueOf(pageSize)+":"+String.valueOf(pageIndex);
         pageIndex=3*(pageIndex-1);
 //        String lockName = "Lock:House:Write";
@@ -84,10 +85,15 @@ public class HouseServiceImpl implements HouseService {
 //        redisTemplate.opsForHash().putAll("jila", (Map<?, ?>) houseListIterator);
         //当pageIndex>=redisOn时,启动redis缓存
 //        int redisOn = 2;
-        List<House> houses = houseMapper.selectAllLimit(orderBy, pageSize, pageIndex);
+//        List<House> houses = houseMapper.selectAllLimit(orderBy, pageSize, pageIndex);
 //        if (pageIndex>=redisOn){
 //            synchronized (this){}
 //        }
+        House house1 = new House();
+        house1.setId(orderBy);
+        RowBounds rowBounds = new RowBounds(pageIndex,pageSize);
+        List<House> houses = houseMapper.selectByExampleAndRowBounds(house1, rowBounds);
+        System.out.println(houses);
         return houses;
     }
 
@@ -145,6 +151,13 @@ public class HouseServiceImpl implements HouseService {
             System.out.println("没有这号人啊");
             return false;
         }
+    }
+
+    @Override
+    public List<House> selectListAll() {
+
+        return houseMapper.selectAll();
+
     }
 
 

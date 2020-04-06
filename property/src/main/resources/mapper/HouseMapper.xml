@@ -15,10 +15,11 @@
     <result column="direction" jdbcType="VARCHAR" property="direction" />
     <result column="memo" jdbcType="VARCHAR" property="memo" />
     <result column="ownerid" jdbcType="VARCHAR" property="ownerid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated generated on Thu Mar 12 17:06:14 CST 2020.-->
-    id, num, dep, `type`, area, sell, unit, `floor`, direction, memo, ownerid
+    id, num, dep, `type`, area, sell, unit, `floor`, direction, memo, ownerid, `status`
   </sql>
     <select id="selectAllLimit" resultMap="BaseResultMap">
       select * from house order by #{orderBy} desc limit #{pageSize} offset #{pageIndex}
