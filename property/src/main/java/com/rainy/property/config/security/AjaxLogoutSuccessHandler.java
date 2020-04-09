@@ -26,7 +26,7 @@ public class AjaxLogoutSuccessHandler implements LogoutSuccessHandler {
     public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         AjaxResponseBody responseBody = new AjaxResponseBody();
 
-        responseBody.setStatus("100");
+        responseBody.setCode(10000);
         responseBody.setMsg("Logout Success!");
 
         httpServletResponse.getWriter().write(JSON.toJSONString(responseBody));

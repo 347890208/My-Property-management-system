@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class AjaxResponseBody implements Serializable{
 
-    private String status;
+    private int code;
     private String msg;
     private Object result;
-    private String jwtToken;
+    private String token;
 
-    public String getStatus() {
-        return status;
+    public int getCode() {
+        return code;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMsg() {
@@ -33,11 +33,11 @@ public class AjaxResponseBody implements Serializable{
         this.result = result;
     }
 
-    public String getJwtToken() {
-        return jwtToken;
+    public String getToken() {
+        return token;
     }
 
-    public void setJwtToken(String jwtToken) {
-        this.jwtToken = jwtToken;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

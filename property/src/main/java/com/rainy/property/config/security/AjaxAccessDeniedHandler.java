@@ -26,7 +26,7 @@ public class AjaxAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
         AjaxResponseBody responseBody = new AjaxResponseBody();
 
-        responseBody.setStatus("300");
+        responseBody.setCode(30000);
         responseBody.setMsg("Need Authorities!");
 
         httpServletResponse.getWriter().write(JSON.toJSONString(responseBody));

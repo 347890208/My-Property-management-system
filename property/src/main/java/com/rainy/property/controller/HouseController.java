@@ -17,7 +17,7 @@ import java.util.List;
  * @Author: 34789
  * @Date: 2020/3/12 17:46
  */
-@CrossOrigin(origins = "http://localhost:9527")
+//@CrossOrigin(origins = "http://localhost:9527")
 @RestController
 @RequestMapping("/house")
 public class HouseController {
@@ -34,10 +34,12 @@ public class HouseController {
     }
 
     @GetMapping("/list/")
-    public List<House> selectAllByPage(@RequestParam(defaultValue = "id") String orderBy,
-                                       @RequestParam(defaultValue = "1") int pageIndex,
-                                       @RequestParam(defaultValue = "3") int pageSize){
-        return houseService.selectAll(orderBy,pageIndex,pageSize);
+    public UrlUtil selectAllByPage(@RequestParam(defaultValue = "id") String orderBy,
+                                   @RequestParam(defaultValue = "1") int pageIndex,
+                                   @RequestParam(defaultValue = "3") int pageSize){
+        List<House> houses = houseService.selectAll(orderBy, pageIndex, pageSize);
+        UrlUtil urlUtil = new UrlUtil(20000, houses);
+        return urlUtil;
     }
 
     @GetMapping("/")

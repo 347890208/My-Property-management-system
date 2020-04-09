@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.rainy.property.mapper.HouseMapper;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 import java.util.ListIterator;
@@ -89,10 +90,11 @@ public class HouseServiceImpl implements HouseService {
 //        if (pageIndex>=redisOn){
 //            synchronized (this){}
 //        }
+        Example example=new Example(House.class);
         House house1 = new House();
-        house1.setId(orderBy);
         RowBounds rowBounds = new RowBounds(pageIndex,pageSize);
-        List<House> houses = houseMapper.selectByExampleAndRowBounds(house1, rowBounds);
+        System.out.println(pageSize);
+        List<House> houses = houseMapper.selectByRowBounds(house1, rowBounds);
         System.out.println(houses);
         return houses;
     }

@@ -25,10 +25,11 @@ public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHa
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         AjaxResponseBody responseBody = new AjaxResponseBody();
-
-        responseBody.setStatus("400");
+        System.out.println("登录失败");
+        responseBody.setCode(20000);
         responseBody.setMsg("Login Failure!");
 
         httpServletResponse.getWriter().write(JSON.toJSONString(responseBody));
+        System.out.println(httpServletRequest);
     }
 }

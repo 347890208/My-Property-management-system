@@ -26,14 +26,15 @@ public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHa
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         AjaxResponseBody responseBody = new AjaxResponseBody();
+        System.out.println("登录成功");
 
-        responseBody.setStatus("200");
+        responseBody.setCode(20000);
         responseBody.setMsg("Login Success!");
 
         SelfUserDetails userDetails = (SelfUserDetails) authentication.getPrincipal();
 
-        String jwtToken = JwtTokenUtil.generateToken(userDetails.getUsername(), 6000, "_secret");
-        responseBody.setJwtToken(jwtToken);
+        String Token = JwtTokenUtil.generateToken(userDetails.getUsername(), 100, "_secret");
+        responseBody.setToken(Token);
 
         httpServletResponse.getWriter().write(JSON.toJSONString(responseBody));
     }

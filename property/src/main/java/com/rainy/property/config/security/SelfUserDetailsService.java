@@ -27,7 +27,7 @@ public class SelfUserDetailsService implements UserDetailsService {
 
         SelfUserDetails userInfo = new SelfUserDetails();
         userInfo.setUsername(username);
-        userInfo.setPassword(new BCryptPasswordEncoder().encode("123"));
+        userInfo.setPassword(new BCryptPasswordEncoder().encode("123123"));
 
         Set authoritiesSet = new HashSet();
         GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_ADMIN");
