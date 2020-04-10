@@ -8,7 +8,12 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- *  ① 定义 user 对象
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: SelfUserDetails
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/18 11:34
  */
 public class SelfUserDetails implements UserDetails, Serializable {
     private String username;

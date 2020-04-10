@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +17,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.util.DigestUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -61,7 +63,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+                .cors().and()
+                .authorizeRequests()
                 .antMatchers("/admin/category/all").authenticated()
                 .antMatchers("/admin/**","/reg").hasRole("超级管理员")///admin/**的URL都需要有超级管理员角色，如果使用.hasAuthority()方法来配置，需要在参数中加上ROLE_,如下.hasAuthority("ROLE_超级管理员")
                 .antMatchers(AUTH_WHITELIST).permitAll()
@@ -85,7 +89,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         out.flush();
                         out.close();
                     }
-                }).loginProcessingUrl("/login")
+                }).loginProcessingUrl(new AbstractAuthenticationFilterConfigurer{
+                    @Override
+                            public
+        })
                 .usernameParameter("username").passwordParameter("password").permitAll()
                 .and().logout().permitAll().and().csrf().disable().exceptionHandling().accessDeniedHandler(getAccessDeniedHandler());
     }

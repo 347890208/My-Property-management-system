@@ -31,7 +31,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .setClaims(null)
                 .setSubject(subject)
-                .setExpiration(new Date(System.currentTimeMillis() + expirationSeconds * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + expirationSeconds * 6000))
 //                .signWith(SignatureAlgorithm.HS512, salt) // 不使用公钥私钥
                 .signWith(SignatureAlgorithm.RS256, privateKey)
                 .compact();

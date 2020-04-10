@@ -11,6 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @version v1.0
+ * @ProjectName: My-Property-management-system
+ * @ClassName: AjaxAccessDeniedHandler
+ * @Description: TODO(一句话描述该类的功能)
+ * @Author: 34789
+ * @Date: 2020/3/16 11:46
+ */
 @Component
 public class AjaxAccessDeniedHandler implements AccessDeniedHandler {
 
@@ -18,7 +26,7 @@ public class AjaxAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
         AjaxResponseBody responseBody = new AjaxResponseBody();
 
-        responseBody.setStatus("300");
+        responseBody.setCode(30000);
         responseBody.setMsg("Need Authorities!");
 
         httpServletResponse.getWriter().write(JSON.toJSONString(responseBody));

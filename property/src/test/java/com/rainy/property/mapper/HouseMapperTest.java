@@ -25,6 +25,5 @@ public class HouseMapperTest {
 
     @org.junit.Test
     public void testSelectAllLimit() throws FileNotFoundException {
-        mapper.selectAllLimit("id",3,1);
     }
 }
