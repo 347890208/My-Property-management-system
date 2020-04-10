@@ -3,6 +3,7 @@ package com.rainy.property.config.security;
 import com.alibaba.fastjson.JSON;
 import com.rainy.property.domain.AjaxResponseBody;
 import com.rainy.property.util.JwtTokenUtil;
+import com.rainy.property.util.UrlUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -34,9 +35,12 @@ public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHa
         SelfUserDetails userDetails = (SelfUserDetails) authentication.getPrincipal();
 
         String Token = JwtTokenUtil.generateToken(userDetails.getUsername(), 100, "_secret");
+        //可以拿到username,就在这往redis存token
+        System.out.println(userDetails.getUsername());
         responseBody.setToken(Token);
 
-        httpServletResponse.getWriter().write(JSON.toJSONString(responseBody));
+        UrlUtil urlUtil = new UrlUtil(20000,responseBody);
+        httpServletResponse.getWriter().write(JSON.toJSONString(urlUtil));
     }
 }
 
